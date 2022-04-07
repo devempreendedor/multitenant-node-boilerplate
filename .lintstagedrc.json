@@ -1,0 +1,3 @@
+{
+  "**/*.(ts|tsx|js)": ["yarn prettier:fix", "yarn lint"]
+}
