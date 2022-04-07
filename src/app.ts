@@ -3,6 +3,8 @@ import helmet from 'helmet'
 import createHttpError, { HttpError } from 'http-errors'
 import cors from 'cors'
 import { config, strategy } from './configs'
+import { connectAllDb } from './database/connectionManager'
+import { router as routes } from './routes/v1'
 import { errorHandler, successHandler } from './configs/morgan'
 import passport from 'passport'
 
@@ -17,6 +19,10 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
 passport.use('jwt', strategy)
+
+connectAllDb()
+
+app.use('/api/v1', routes)
 
 app.use((req: Request, res: Response, next: NextFunction) => {
   next(createHttpError(404))
