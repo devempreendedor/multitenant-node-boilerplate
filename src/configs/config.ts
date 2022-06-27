@@ -4,6 +4,7 @@ const config = {
     port: process.env.SERVER_PORT,
   },
   database: {
+    name: process.env.DATABASE_NAME,
     URI: process.env.DATABASE_URI,
     options: {
       useNewUrlParser: true,

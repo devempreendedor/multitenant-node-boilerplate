@@ -12,7 +12,7 @@ let adminDbConnection: any
 
 const connectAllDb = async () => {
   let tenants
-  const ADMIN_DB_URI = `${config.database.URI}/pkclub_admin`
+  const ADMIN_DB_URI = `${config.database.URI}/${config.database.name}`
   adminDbConnection = initAdminDbConnection(ADMIN_DB_URI)
   logger.info('connectAllDb adminDbConnection', adminDbConnection.name)
   try {
